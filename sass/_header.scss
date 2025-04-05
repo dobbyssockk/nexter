@@ -1,0 +1,71 @@
+.header {
+    grid-column: full-start / col-end 6;
+
+    // linear-gradient making overlay on image
+    background-image: linear-gradient(
+        rgba($color-secondary, .93),
+        rgba($color-secondary, .93)),
+      url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+
+    display: grid;
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr; // logo h3 h1-(with minmax in order to prevent overflowing) button
+    grid-auto-columns: minmax(min-content, max-content); // prevent overlapping
+    justify-content: center;
+    gap: 1.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: full-start / full-end;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
+
+    &__logo {
+        justify-self: center; // horizontally
+        height: 3rem;
+    }
+
+    &__btn {
+        justify-self: start;
+        align-self: start;
+
+        margin-top: 2rem;
+    }
+
+    &__seenon-text {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        align-items: center;
+        gap: 1.5rem;
+
+        color: $color-grey-light-2;
+        font-size: 1.6rem;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: currentColor;
+        }
+    }
+
+    &__seenon-logos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 3rem;
+        justify-items: center;
+        align-items: center;
+
+        img {
+            max-height: 2.5rem; // prevent overlapping
+            max-width: 100%; // fix improper scaling
+            filter: brightness(70%); // make darker
+        }
+    }
+}

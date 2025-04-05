@@ -1,0 +1,42 @@
+.realtors {
+    grid-column: col-start 7 / full-end;
+    background-color: $color-secondary;
+    padding: 3rem;
+
+    // center and make space between heading and realtors list
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: full-start / full-end;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: min-content max-content;
+        align-items: center;
+        gap: 5vh 2rem; // row column
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content); // min-content max-content three times => 6 columns 
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content;
+        }
+    }
+
+    &__img {
+        width: 7rem;
+        border-radius: 100%;
+    }
+
+    &__sold {
+        color: $color-grey-light-2;
+        text-transform: uppercase;
+        margin-top: -3px; // move it up a little bit
+    }
+}

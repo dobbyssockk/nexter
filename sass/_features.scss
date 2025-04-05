@@ -1,0 +1,28 @@
+.features {
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // using auto-fit to create as many tracks as can fit for responsiveness
+    gap: 6rem;
+    align-items: start;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 1.5rem 2.5rem; // row / column
+    
+    &__icon {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $color-primary;
+        grid-row: 1 / span 2; // span instead of -1 because -1 only works for explicit grid
+        translate: 0 -1rem; // align with heading
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
